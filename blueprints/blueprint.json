@@ -15,15 +15,15 @@
      {
       "step": "setSiteOptions",
       "options": {
-        "blogname": "project_urlname",
-        "blogdescription": "CRUD the project_urlname in Playground.",
-        "wordpress_export_to_server__owner_repo_branch": "author_name/project_urlname/main"
+        "blogname": "demo-docs",
+        "blogdescription": "CRUD the demo-docs in Playground.",
+        "wordpress_export_to_server__owner_repo_branch": "carstingaxion/demo-docs/main"
       }
     },
     {
       "step": "defineWpConfigConsts",
       "consts": {
-          "UPLOADS": "wp-content/project_urlname-main"
+          "UPLOADS": "wp-content/demo-docs-main"
       }
     },
     {
@@ -45,22 +45,22 @@
     },
     {
       "step": "writeFile",
-      "path": "/wordpress/wp-content/project_urlname.zip",
+      "path": "/wordpress/wp-content/demo-docs.zip",
       "data": {
         "resource": "url",
-        "url": "https://github-proxy.com/proxy/?repo=author_name/project_urlname",
-        "caption": "Downloading project_urlname repository."
+        "url": "https://github-proxy.com/proxy/?repo=carstingaxion/demo-docs",
+        "caption": "Downloading demo-docs repository."
       },
       "progress": {
         "weight": 2,
-        "caption": "Applying project_urlname files."
+        "caption": "Applying demo-docs files."
       }
     },
     {
       "step": "unzip",
       "zipFile": {
         "resource": "vfs",
-        "path": "/wordpress/wp-content/project_urlname.zip"
+        "path": "/wordpress/wp-content/demo-docs.zip"
       },
       "extractToPath": "/wordpress/wp-content"
     },
@@ -81,7 +81,7 @@
     },
     {
       "step": "runPHP",
-      "code": "<?php require '/wordpress/wp-load.php';$path = realpath( '/wordpress/wp-content/project_urlname-main/export.xml' );$logger = new WP_Importer_Logger_CLI();$logger->min_level = 'info';$options = array( 'fetch_attachments' => false, 'default_author' => 1,);$importer = new WXR_Importer( $options );$importer->set_logger( $logger );$result = $importer->import( $path );"
+      "code": "<?php require '/wordpress/wp-load.php';$path = realpath( '/wordpress/wp-content/demo-docs-main/export.xml' );$logger = new WP_Importer_Logger_CLI();$logger->min_level = 'info';$options = array( 'fetch_attachments' => false, 'default_author' => 1,);$importer = new WXR_Importer( $options );$importer->set_logger( $logger );$result = $importer->import( $path );"
     }
   ]
 }
